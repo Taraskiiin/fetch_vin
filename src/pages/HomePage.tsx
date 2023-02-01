@@ -2,6 +2,8 @@ import React from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 
+import '../styles/HomePage.css'
+
 const NotFoundPage = () => {
 	const SearchSchema = Yup.object().shape({
 		VIN: Yup.string()
@@ -23,7 +25,7 @@ const NotFoundPage = () => {
 				}}
 			>
 				{({ errors, touched }) => (
-					<Form>
+					<Form className="formik-form">
 						<Field name="VIN" />
 						{errors.VIN && touched.VIN ? (
 							<div>{errors.VIN}</div>
