@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import IVehicleVariableByVin from '../interfaces/vehicleVariablesByVin'
-import useDescription from '../hooks/useDescription'
+import { useAppSelector } from '../store/hooks'
 
 const InfoPage = () => {
-	const [fetch, setFetch] = useState<any>([])
-	// const vin1 = '1FTFW1CT5DFC10312'
-	const vin2 = 'JN1AZ4EH7DM430111'
+	const [fetch, setFetch] = useState<IVehicleVariableByVin[]>([])
+	const vinList = useAppSelector<string[] | []>(state => state.searchList)
 	useEffect(() => {
 		const fetchVIN = async () => {
 			try {
 				const response = await axios.get(
-					`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin2}?format=json`,
+					`${process.env.REACT_APP_API_URL}decodevin/${
+						vinList[vinList.length - 1]
+					}?format=json`,
 				)
 				setFetch(response?.data?.Results)
 			} catch (e) {
@@ -22,11 +23,6 @@ const InfoPage = () => {
 		fetchVIN()
 	}, [])
 
-	const handleClick = (id: number) => {
-		const result = useDescription(id)
-
-		return result
-	}
 	return (
 		<>
 			{fetch.length > 0 &&

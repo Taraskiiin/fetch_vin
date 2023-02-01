@@ -1,10 +1,15 @@
 import React from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
+import { useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '../store/hooks'
+import { addElement } from '../store/searchListSlice'
 
 import '../styles/HomePage.css'
 
 const NotFoundPage = () => {
+	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
 	const SearchSchema = Yup.object().shape({
 		VIN: Yup.string()
 			.min(17, 'Too Short!')
@@ -20,8 +25,8 @@ const NotFoundPage = () => {
 				}}
 				validationSchema={SearchSchema}
 				onSubmit={values => {
-					// same shape as initial values
-					console.log(values.VIN.length)
+					dispatch(addElement(values.VIN))
+					navigate('/info')
 				}}
 			>
 				{({ errors, touched }) => (

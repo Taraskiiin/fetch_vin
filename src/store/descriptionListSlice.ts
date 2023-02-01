@@ -1,11 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import IDescription from '../interfaces/description'
-
-interface IDescriptionList {
-	descriptionList: IDescription[] | []
-	status: string | null
-	error?: string
-}
+import IDescriptionList from '../interfaces/descriptionList'
 
 const userInitialState: IDescriptionList = {
 	descriptionList: [],
@@ -26,7 +20,7 @@ export const fetchDescriptionsList = createAsyncThunk(
 			const data = await response.json()
 
 			return data.Results
-		} catch (error: any) {
+		} catch (error) {
 			return rejectWithValue(error.message)
 		}
 	},
