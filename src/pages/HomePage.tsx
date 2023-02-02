@@ -4,18 +4,26 @@ import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../store/hooks'
 import { addElement } from '../store/searchListSlice'
+import { regex } from '../constants/regex'
+import InputComponents from '../components/InputComponents'
 
-import '../styles/HomePage.css'
+import '../styles/pages/HomePage.css'
 
 const NotFoundPage = () => {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 	const SearchSchema = Yup.object().shape({
 		VIN: Yup.string()
+			// .matches(regex, 'Not Valid Symbol!')
 			.min(17, 'Too Short!')
 			.max(17, 'Too Long!')
 			.required('Required'),
 	})
+
+	const onSubmit = (vin: string) => {
+		dispatch(addElement(vin))
+		navigate('/info')
+	}
 
 	return (
 		<>
@@ -25,13 +33,16 @@ const NotFoundPage = () => {
 				}}
 				validationSchema={SearchSchema}
 				onSubmit={values => {
-					dispatch(addElement(values.VIN))
-					navigate('/info')
+					onSubmit(values.VIN)
 				}}
 			>
 				{({ errors, touched }) => (
 					<Form className="formik-form">
-						<Field name="VIN" />
+						<Field
+							name="VIN"
+							component={InputComponents}
+							placeholder="VIN"
+						/>
 						{errors.VIN && touched.VIN ? (
 							<div>{errors.VIN}</div>
 						) : null}
