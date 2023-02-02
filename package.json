@@ -43,9 +43,9 @@
 		}
 	},
 	"lint-staged": {
-		"**/*.{js,jsx,ts,tsx,json}": [
-			"eslint . --fix",
-			"prettier --write ."
+		"!(path/to/excluded/dir/**/*)*.ts": [
+			"eslint --fix",
+			"prettier --write"
 		]
 	},
 	"eslintConfig": {

@@ -1,9 +1,25 @@
-.list-item {
-	position: relative;
-	margin-bottom: 10px;
-	transition: 5s ease-in-out;
+.list {
+	max-width: 500px;
+	margin: 0 auto;
+	padding-top: 50px;
 }
 
 .list-item_content {
-	transition: all 5s ease;
+	display: flex;
+	gap: 5px;
+	position: relative;
+	cursor: pointer;
+}
+
+.list-item_content > p:first-child {
+	color: var(--color-blue);
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	font-size: 18px;
+}
+
+.list-item_content > p:last-child {
+	color: #333;
+	font-size: 16px;
+	letter-spacing: 0.15px;
 }

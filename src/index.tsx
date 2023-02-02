@@ -8,6 +8,7 @@ import store, { persistor } from './store/store'
 import reportWebVitals from './reportWebVitals'
 
 import './styles/reset.css'
+import './styles/styles.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

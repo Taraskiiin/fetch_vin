@@ -1,7 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../store/hooks'
 import IDescription from '../interfaces/description'
-
 import '../styles/components/Hint.css'
 
 interface IHint {
@@ -16,6 +15,7 @@ const Hint: React.FC<IHint> = ({ id }) => {
 	const correctElem = descriptionList.find(
 		(element: IDescription) => element.ID === id,
 	)
+
 	return (
 		<div className="hint">
 			{correctElem ? (

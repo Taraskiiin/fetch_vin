@@ -30,10 +30,10 @@ const InfoPage = () => {
 	}, [])
 
 	return (
-		<>
+		<div className="list">
 			{fetch.length > 0 &&
 				fetch?.map((el: IVehicleVariableByVin) => (
-					<div key={el?.VariableId} className="list-item">
+					<>
 						{el.Value && el.Value !== 'Not Applicable' && (
 							<>
 								<div
@@ -41,20 +41,19 @@ const InfoPage = () => {
 									onMouseOver={() =>
 										setShowHintByID(el.VariableId)
 									}
-									onMouseLeave={() => setShowHintByID(null)}
-								>
-									<p>{el?.Variable}</p>
+									onMouseLeave={() => setShowHintByID(null)}>
+									<p>{el?.Variable} :</p>
 									<p>{el?.Value}</p>
+									{showHintByID &&
+										showHintByID === el.VariableId && (
+											<Hint id={showHintByID} />
+										)}
 								</div>
-								{showHintByID &&
-									showHintByID === el.VariableId && (
-										<Hint id={showHintByID} />
-									)}
 							</>
 						)}
-					</div>
+					</>
 				))}
-		</>
+		</div>
 	)
 }
 

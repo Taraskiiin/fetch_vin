@@ -1,0 +1,33 @@
+:root {
+	--color-dark-red: #4d0013;
+	--color-light-red: #910002;
+	--color-blue: #6aadff;
+	--color-pink: #eccbff;
+	--color-light-gray: #fff1ff;
+}
+
+* {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+body {
+	background-color: var(--color-pink);
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0.8;
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 0;
+	}
+}
