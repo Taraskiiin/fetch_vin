@@ -1,0 +1,9 @@
+.list-item {
+	position: relative;
+	margin-bottom: 10px;
+	transition: 5s ease-in-out;
+}
+
+.list-item_content {
+	transition: all 5s ease;
+}

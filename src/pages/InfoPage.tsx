@@ -5,6 +5,8 @@ import { useAppSelector } from '../store/hooks'
 
 import Hint from '../components/Hint'
 
+import '../styles/pages/InfoPage.css'
+
 const InfoPage = () => {
 	const [fetch, setFetch] = useState<IVehicleVariableByVin[]>([])
 	const [showHintByID, setShowHintByID] = useState<number | null>(null)
@@ -31,11 +33,12 @@ const InfoPage = () => {
 		<>
 			{fetch.length > 0 &&
 				fetch?.map((el: IVehicleVariableByVin) => (
-					<div key={el?.VariableId} style={{ marginBottom: '10px' }}>
+					<div key={el?.VariableId} className="list-item">
 						{el.Value && el.Value !== 'Not Applicable' && (
 							<>
 								<div
-									onMouseEnter={() =>
+									className="list-item_content"
+									onMouseOver={() =>
 										setShowHintByID(el.VariableId)
 									}
 									onMouseLeave={() => setShowHintByID(null)}

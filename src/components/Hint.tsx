@@ -2,6 +2,8 @@ import React from 'react'
 import { useAppSelector } from '../store/hooks'
 import IDescription from '../interfaces/description'
 
+import '../styles/components/Hint.css'
+
 interface IHint {
 	id: number
 }

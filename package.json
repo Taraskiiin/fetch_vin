@@ -1,5 +1,6 @@
 {
 	"name": "fetch-vin",
+	"homepage": "https://Taraskiiin.github.io/fetch_vin/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -30,6 +31,8 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
@@ -68,6 +71,7 @@
 		"@typescript-eslint/parser": "^5.50.0",
 		"eslint": "^8.33.0",
 		"eslint-plugin-react": "^7.32.2",
+		"gh-pages": "^5.0.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.1.0",
 		"prettier": "^2.8.3"
