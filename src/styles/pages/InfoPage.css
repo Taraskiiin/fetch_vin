@@ -19,11 +19,11 @@
 	margin-bottom: 20px;
 }
 
-.list > a {
+.list > a:hover {
 	opacity: 0.9;
 }
 
-.list > a {
+.list > a:active {
 	opacity: 1;
 }
 
