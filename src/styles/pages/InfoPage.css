@@ -1,7 +1,30 @@
 .list {
 	max-width: 500px;
 	margin: 0 auto;
-	padding-top: 20px;
+	padding: 20px 0;
+}
+
+.list > a {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: var(--color-blue);
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.8;
+	cursor: pointer;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.list > a {
+	opacity: 0.9;
+}
+
+.list > a {
+	opacity: 1;
 }
 
 .list-item_content {
@@ -9,16 +32,18 @@
 	gap: 5px;
 	position: relative;
 	cursor: pointer;
+	align-items: center;
 }
 
 .list-item_content > p:first-child {
 	color: var(--color-blue);
+	white-space: nowrap;
 	font-weight: 600;
 	letter-spacing: 0.2px;
 	font-size: 18px;
 }
 
-.list-item_content > p:last-child {
+.list-item_content > p:nth-child(2) {
 	color: #333;
 	font-size: 16px;
 	letter-spacing: 0.15px;
@@ -31,9 +56,10 @@
 
 	.list-item_content > p:first-child {
 		font-size: 14px;
+		white-space: normal;
 	}
 
-	.list-item_content > p:last-child {
+	.list-item_content > p:nth-child(2) {
 		font-size: 12px;
 	}
 }

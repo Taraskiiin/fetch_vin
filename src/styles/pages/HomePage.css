@@ -45,6 +45,7 @@
 	text-align: center;
 	opacity: 0.8;
 	cursor: pointer;
+	color: #333;
 }
 
 .submit-btn:hover {
