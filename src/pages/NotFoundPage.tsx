@@ -2,18 +2,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faHandPointDown } from '@fortawesome/free-solid-svg-icons'
+
+import '../styles/pages/NotFoundPage.css'
 
 const NotFoundPage = () => {
 	return (
-		<>
-			<h1>
-				THIS PAGE DOESN'T EXIST. GO{' '}
-				<Link to="/">
-					<FontAwesomeIcon icon={faHouse} />
-				</Link>
-			</h1>
-		</>
+		<div className="Not-found-block">
+			<Link to="/">
+				<h3 className="Not-found-text">
+					<FontAwesomeIcon icon={faHandPointDown} />
+					THIS PAGE DOESN'T EXIST. PLEASE TAP HERE
+				</h3>
+			</Link>
+		</div>
 	)
 }
 

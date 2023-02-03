@@ -11,7 +11,7 @@ import InputComponents from '../components/InputComponents'
 
 import '../styles/pages/HomePage.css'
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 	const SearchSchema = Yup.object().shape({
