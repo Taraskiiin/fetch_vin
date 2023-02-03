@@ -2,6 +2,8 @@ import React from 'react'
 import { useAppSelector } from '../store/hooks'
 import IDescription from '../interfaces/description'
 import '../styles/components/Hint.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandPointLeft } from '@fortawesome/free-solid-svg-icons'
 
 interface IHint {
 	id: number
@@ -18,6 +20,7 @@ const Hint: React.FC<IHint> = ({ id }) => {
 
 	return (
 		<div className="hint">
+			<FontAwesomeIcon icon={faHandPointLeft} />
 			{correctElem ? (
 				<p
 					dangerouslySetInnerHTML={{

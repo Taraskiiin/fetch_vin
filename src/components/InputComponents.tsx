@@ -1,6 +1,8 @@
 import React, { FormEvent, useState } from 'react'
 import { useAppSelector } from '../store/hooks'
 
+import '../styles/components/InputComponents.css'
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const InputComponents: React.FC<any> = ({ field, ...props }) => {
 	const [search, setSearch] = useState<string>('')
@@ -14,14 +16,19 @@ const InputComponents: React.FC<any> = ({ field, ...props }) => {
 	props.form.values.VIN = search
 
 	return (
-		<div>
+		<div className="input-block">
 			<input
 				type="text"
 				{...field}
 				{...props}
 				onChange={handleOnChange}
 				autoComplete="off"
+				id="vin"
+				className="vin_field"
 			/>
+			<label htmlFor="vin" className="form__label">
+				your VIN:
+			</label>
 			<div className="dropdown">
 				{searchList.length > 0 &&
 					search !== '' &&
@@ -36,8 +43,7 @@ const InputComponents: React.FC<any> = ({ field, ...props }) => {
 							<div
 								key={index}
 								className="dropdown-row"
-								onClick={() => setSearch(item)}
-							>
+								onClick={() => setSearch(item)}>
 								{item}
 							</div>
 						))}
